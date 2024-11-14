@@ -1,0 +1,31 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+float x, y, e, otv;
+cout<<"\nx="; cin>>x;
+cout<<"\ny="; cin>>y;
+cout<<"\ne="; cin>>e;
+
+otv=pow(e,x)-(pow(y,4)+2*x*y-18*pow(x,3))/(18*x-1);
+
+cout<<"\nОтвет:"<<otv;
+return 0;
+}
+
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+float goose, rice, apple, price;
+cout<<"\nгусь-"; cin>>goose;
+cout<<"\nрис-"; cin>>rice;
+cout<<"\nяблоки-"; cin>>apple;
+price=(goose+rice+apple)+100;
+cout<<"\nцена:"<<price;
+return 0;
+}

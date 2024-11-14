@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int m, n;
+    int s = 0, sa = 0, sb = 0;
+    
+    
+    cout << "Введите значение m: ";
+    cin >> m;
+    cout << "Введите значение n: ";
+    cin >> n;
+    
+    for (int i = m; i <= n; ++i)
+    {
+        s += i; 
+
+        if (i % 2 == 0)
+        {
+            sa += i;
+        } else
+        { 
+            sb += i;
+        }
+    }
+    
+    cout << "Сумма всех чисел в интервале [" << m << ", " << n << "] равна: " << s << endl;
+    cout << "Сумма чётных чисел: " << sa << endl;
+    cout << "Сумма нечётных чисел: " << sb << endl;
+    
+    return 0;
+}

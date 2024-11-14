@@ -1,0 +1,16 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+float a,b,sum;
+cout<<"\na-"; cin>>a;
+cout<<"\nb-"; cin>>b;
+sum=a+b;
+if (sum>32767)
+    cout<<"\nпереполнено";
+    else
+    cout<<"\nВсё четко";
+return 0;
+}
