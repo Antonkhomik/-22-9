@@ -1,0 +1,39 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main() {
+    int x, y;
+
+    for (int i = -10; i<=15; i++){
+        x=i;
+        cout<<"\nЗначение Х : "<<x;
+        if (-10<=x<=0){
+        y = -x/2-3;
+        }
+        else{
+            if (x>0&& x<=3){
+                y=-(sqrt(pow(3, 2)-pow(x,2)));
+            }
+            else{
+                if (x>3 && x<=6){
+                    y=sqrt(pow(3,2)-(x-3));
+                }
+                else{
+                    if (x<6 && x<=8){
+                        y=0;
+                    }
+
+                }
+            }
+        }
+    if (x<6 && x<=8){
+        cout<<"\nЗначение Y : "<<y;
+    }
+    else{
+        cout<<"\nФункция не определена";
+    }
+    cout<<"\n-------------------";
+    }
+    
+    return 0;
+}

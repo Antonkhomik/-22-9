@@ -1,0 +1,24 @@
+#include <iostream>
+#include <math.h>
+int main() {
+    float a, b, c;
+    cout<<"\nEnter a value a - "; cin>>a;
+    cout<<"\nEnter a value b - "; cin>>b;
+    cout<<"\nEnter a value c - "; cin>>c;
+    if(a>c)
+    {
+    cout<<"\nПривет";
+    }
+    else
+    {
+    if(c<b)
+    {
+    сout<<"\nПривет";
+    }
+    else
+    {
+    cout<<"\nПривет"; 
+    }
+    }
+    return 0;
+}
