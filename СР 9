@@ -1,0 +1,51 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
+
+struct Date {
+	int day;
+	int month;
+	int year;
+	
+	void print() const {
+		std::cout << day << "/" << month << "/" << year << std::endl;
+	}
+};
+
+bool isSummerDate(const Date& date) {
+	return date.month >= 6 && date.month <= 8; // Июнь, Июль, Август
+}
+
+int main() {
+	std::ifstream inputFile("dog.txt");
+	if (!inputFile) {
+		std::cerr << "Не удалось открыть файл!" << std::endl;
+		return 1;
+	}
+	
+	std::vector<Date> summerDates;
+	std::string line;
+	
+	while (std::getline(inputFile, line)) {
+		std::istringstream iss(line);
+		Date date;
+		if (iss >> date.day >> date.month >> date.year) {
+			if (isSummerDate(date)) {
+				summerDates.push_back(date);
+			}
+		} else {
+			std::cerr << "Ошибка при чтении даты из строки: " << line << std::endl;
+		}
+	}
+	
+	inputFile.close();
+	
+	std::cout << "Летние даты:" << std::endl;
+	for (const auto& date : summerDates) {
+		date.print();
+	}
+	
+	return 0;
+}
