@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+
+bool canFormString(const std::string& A, const std::string& B) {
+    // Массив для хранения количества вхождений каждой буквы
+    std::vector<int> letterCount(256, 0); // Используем 256 для всех ASCII символов
+
+    // Подсчитываем количество букв в строке A
+    for (char ch : A) {
+        letterCount[ch]++;
+    }
+
+    // Проверяем, можем ли мы составить строку B
+    for (char ch : B) {
+        if (letterCount[ch] == 0) {
+            return false; // Если буквы недостаточно, возвращаем false
+        }
+        letterCount[ch]--; // Уменьшаем количество использованной буквы
+    }
+
+    return true; // Если все буквы из B были успешно использованы
+}
+
+int main() {
+    std::string A, B;
+    std::cout << "Введите строку A: ";
+    std::getline(std::cin, A);
+    std::cout << "Введите строку B: ";
+    std::getline(std::cin, B);
+
+    if (canFormString(A, B)) {
+        std::cout << "Составить строку B из A можно." << std::endl;
+    } else {
+        std::cout << "Составить строку B из A нельзя." << std::endl;
+    }
+
+    return 0;
+}
