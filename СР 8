@@ -1,0 +1,45 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+struct Student {
+    std::string name;
+    int math;
+    int russian;
+    int physics;
+};
+
+double calculate_average(int math, int russian, int physics) {
+    return (math + russian + physics) / 3.0;
+}
+
+int main() {
+    int n;
+    std::cout << "Введите количество учеников: ";
+    std::cin >> n;
+
+    std::vector<Student> students(n);
+    double total_average = 0;
+
+    for (int i = 0; i < n; ++i) {
+        std::cout << "Введите имя ученика и его оценки по математике, русскому языку и физике через пробел: ";
+        std::cin >> students[i].name >> students[i].math >> students[i].russian >> students[i].physics;
+
+        double average = calculate_average(students[i].math, students[i].russian, students[i].physics);
+        total_average += average;
+    }
+
+    total_average /= n; // Вычисляем средний балл по классу
+
+    std::cout << "Средний балл в классе: " << total_average << std::endl;
+    std::cout << "Ученики с средним баллом выше среднего по классу:" << std::endl;
+
+    for (const auto& student : students) {
+        double average = calculate_average(student.math, student.russian, student.physics);
+        if (average > total_average) {
+            std::cout << student.name << " - " << average << std::endl;
+        }
+    }
+
+    return 0;
+}
